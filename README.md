@@ -11,7 +11,7 @@ For the Database will be used [MongoDB](https://www.mongodb.com/).
 ### Development
   The backend and database containers will be managed using [docker compose](https://docs.docker.com/compose/).
   
-### Production
+### Staging and Production
   The cloud solution choosed for this application was [Google Cloud Plataform](https://cloud.google.com/)(GCP) because of the available tools to easily manage containers. The main tool used on GCP to manage the deployed containers will be [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine/). The docker images of the application will be store on [Google Container Registry](https://cloud.google.com/container-registry/).
   
 ## CI/CD
@@ -32,5 +32,9 @@ For the Database will be used [MongoDB](https://www.mongodb.com/).
 3. Travis build the new image of the app and push it to the GCP container Registry
 4. Now Travis update the version of the image used on the Node.js API deployment running on kubernetes
 5. Kubernetes pull the new image and deploy the new pods using the latest image version.
+
+# Deploy Environments
+
+The pipeline described will be used on **production** and **staging** environment. The **staging** environment will be deployed using the application version available on the branch **development**. And the **production** environment will be deployed using the version available on the branch **master**.
 
 
