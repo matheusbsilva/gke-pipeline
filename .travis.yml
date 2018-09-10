@@ -1,0 +1,11 @@
+sudo: required
+
+services:
+  - docker
+
+before_script:
+  - docker-compose up -d
+script:
+  - docker-compose exec api yarn test
+notifications:
+  email: false
