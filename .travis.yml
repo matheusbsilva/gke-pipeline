@@ -32,5 +32,10 @@ deploy:
     skip_cleanup: true
     on:
       branch: development
+  - provider: script
+    script: chmod +x deploy/deploy-prod.sh && bash deploy/deploy-prod.sh
+    skip_cleanup: true
+    on:
+      branch: master 
 notifications:
   email: false
