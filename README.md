@@ -1,3 +1,8 @@
+# Access  
+
+- [Staging](http://23.251.151.124/)
+- [Production](http://35.224.108.10/)
+
 # Stack
 ## Backend
   Backend will be build with the latest stable version of Node.js(v10) and the framework [Express](http://expressjs.com/)(v4.16).
