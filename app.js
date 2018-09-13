@@ -25,9 +25,12 @@ mongoose.connect(dbConfig.url, {
   process.exit();
 })
 
+// Routes
 app.get('/', (req, res) => {
   res.json({"message": "hello world!!"});
 });
+
+require('./routes/user.routes.js')(app)
 
 if(!module.parent){
   app.listen(PORT, () => {
