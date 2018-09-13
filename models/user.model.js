@@ -1,23 +1,23 @@
 const mongoose = require('mongoose');
 
-const ListeningSchema = mongoose.Schema({
+var ListeningSchema = mongoose.Schema({
   name: String,
   description: String, 
-  timestamps: true 
+  createdAt: Date
 })
 
-const ApplicationSchema = mongoose.Schema({
+var ApplicationSchema = mongoose.Schema({
   name: String,
   description: String, 
-  listening: [ListeningSchema],
-  timestamps: true 
+  listening: ListeningSchema,
+  createdAt: Date
 })
 
-const UserSchema = mongoose.Schema({
+var UserSchema = mongoose.Schema({
   name: String,
   createdListenings: [ListeningSchema],
   applications: [ApplicationSchema],
-  timestamps: true 
+  createdAt: Date
 })
 
 module.exports = mongoose.model('User', UserSchema)

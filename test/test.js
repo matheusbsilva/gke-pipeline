@@ -5,7 +5,7 @@ chai.use(require('chai-http'));
 
 const app = require('../app.js');
 
-describe('Api root', function() {
+describe('Api users', function() {
   this.timeout(5000); // How long to wait for a response 
 
   before(function() {
@@ -16,13 +16,22 @@ describe('Api root', function() {
 
   });
 
-  it('Return 200 on root /', function() {
+  it('Return 200 on root /', () => {
     return chai.request(app)
       .get('/')
-      .then(function(res) {
+      .then((res) => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
       });
+  });
+
+  it('Returns 200 on topActiveUsers', () => {
+    return chai.request(app)
+      .get('/topActiveUsers')
+      .then((res) => {
+        expect(res).to.have.status(200);
+        expect(res).to.be.json;
+      })
   });
 })
 
