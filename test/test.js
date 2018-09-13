@@ -33,6 +33,30 @@ describe('Api users', function() {
         expect(res).to.be.json;
       })
   });
+
+  it('Returns a list on topActiveUsers', () => {
+    return chai.request(app)
+      .get('/topActiveUsers')
+      .then((res) => {
+        expect(res.body).to.be.an('array')
+      })
+  });
+
+  it('Returns 404 for invalid id on /users/:id', () => {
+    return chai.request(app)
+      .get('/users/000')
+      .then((res) => {
+        expect(res).to.have.status(404);
+      })
+  });
+
+  it('Returns only one object on /users/:id', () => {
+    return chai.request(app)
+      .get('/users/1')
+      .then((res) => {
+        expect(typeof res).to.equal('object')
+      })
+  });
 })
 
 

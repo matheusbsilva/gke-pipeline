@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-var ListeningSchema = mongoose.Schema({
+var ListingSchema = mongoose.Schema({
   name: String,
   description: String, 
   createdAt: Date
@@ -9,13 +9,13 @@ var ListeningSchema = mongoose.Schema({
 var ApplicationSchema = mongoose.Schema({
   name: String,
   description: String, 
-  listening: ListeningSchema,
+  listing: ListingSchema,
   createdAt: Date
 })
 
 var UserSchema = mongoose.Schema({
   name: String,
-  createdListenings: [ListeningSchema],
+  createdListings: [ListingSchema],
   applications: [ApplicationSchema],
   createdAt: Date
 })
